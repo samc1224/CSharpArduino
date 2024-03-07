@@ -22,5 +22,21 @@ namespace CSharpArduino
             SerialLog.AppendText(s);
             SerialLog.ScrollToCaret();
         }
+
+        public void print(int n, string s)
+        {
+            string str = Convert.ToString(n);
+            SerialLog.AppendText(str);
+            SerialLog.ScrollToCaret();
+        }
+
+        public string read()
+        {
+            string str = SerialInput.Text;
+            SerialInput.Text = "";
+            return str;
+        }
+
+        public bool available() { return true; }
     }
 }

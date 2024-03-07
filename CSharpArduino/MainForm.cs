@@ -16,14 +16,15 @@ namespace CSharpArduino
         static readonly FrmLogBoxProgressBar frmLog = new FrmLogBoxProgressBar();
         static readonly FrmSerial Serial = new FrmSerial();
         static FrmVersionLog frmVer = null;
+        static Random rnd = new Random();
 
         public MainForm()
         {
             InitializeComponent();
 
             // Initialize MainForm settings
-            this.Width = 560;
-            this.Height = 600;
+            //this.Width = 560;
+            //this.Height = 600;
             this.AutoScaleMode = AutoScaleMode.None;
 
             // Embed the Form into the Container (TabControl, Panel...)
@@ -32,6 +33,11 @@ namespace CSharpArduino
 
             TimeCounter.startTime = DateTime.Now;
             AddExampleList();
+        }
+
+        public int random(int min, int max)
+        {
+            return rnd.Next(min, max - 1);
         }
 
         #region -- Strip Menu, Tab Control Items --
@@ -66,7 +72,7 @@ namespace CSharpArduino
         {
             listBox1.Items.Add("Ex0");
             listBox1.Items.Add("Ex1");
-            listBox1.Items.Add("Ex2");
+            listBox1.Items.Add("Ex2_HW1");
         }
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
@@ -130,9 +136,34 @@ namespace CSharpArduino
             Serial.write("(1000 ms)\n");
         }
 
+        int input = 0;
+        int answer = 0;
         private void Ex2()
         {
-            Serial.write("**\n");
+            int min = 0, max = 100;
+            answer = random(min, max);
+            Serial.write("Answer number = ");
+            Serial.write(Serial.read());
+            Serial.write("\nEnter two digit number: ");
+            Serial.write(Serial.read());
+            while (input != answer)
+            {
+                Serial.write("\nAnswer range: ");
+                Serial.write("\nEnter two digit number: ");
+                while (input >= 0 && input < 100)
+                {
+                    //input = Convert.ToInt32(Serial.read());
+                    //Serial.write(input.ToString());
+                }
+                if(input != answer)
+                {
+                    if(input<=min || input >= max)
+                    {
+                    }
+                }
+            }
+            Serial.write("\nCorrect, the answer is: ");
+            Serial.write(answer.ToString());
         }
         #endregion
     }

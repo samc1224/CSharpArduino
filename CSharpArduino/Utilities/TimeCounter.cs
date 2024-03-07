@@ -14,7 +14,6 @@ namespace CSharpArduino
         {
             DateTime endTime = DateTime.Now;
             double diff = (endTime - startTime).TotalMilliseconds;
-            //startTime = DateTime.Now;
             return Convert.ToUInt32(diff);
         }
     }
