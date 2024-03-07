@@ -72,6 +72,7 @@
     <Compile Include="Forms\FrmSerial.Designer.cs">
       <DependentUpon>FrmSerial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\TimeCounter.cs" />
     <Compile Include="Utilities\FormEmbedded.cs" />
     <EmbeddedResource Include="Forms\FrmLogBoxProgressBar.resx">
       <DependentUpon>FrmLogBoxProgressBar.cs</DependentUpon>

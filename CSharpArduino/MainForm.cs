@@ -21,7 +21,7 @@ namespace CSharpArduino
         {
             InitializeComponent();
 
-            // Initialize mainForm settings
+            // Initialize MainForm settings
             this.Width = 560;
             this.Height = 600;
             this.AutoScaleMode = AutoScaleMode.None;
@@ -30,7 +30,8 @@ namespace CSharpArduino
             frmLog.Into(pnLogProgress);
             Serial.Into(pnSerial);
 
-            AddListBox1();
+            TimeCounter.startTime = DateTime.Now;
+            AddExampleList();
         }
 
         #region -- Strip Menu, Tab Control Items --
@@ -60,8 +61,8 @@ namespace CSharpArduino
         }
         #endregion
 
-        #region -- List Box (Code List) --
-        private void AddListBox1()
+        #region -- Example Code List Box --
+        private void AddExampleList()
         {
             listBox1.Items.Add("Ex0");
             listBox1.Items.Add("Ex1");
@@ -70,29 +71,29 @@ namespace CSharpArduino
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            ExampleCode(listBox1.SelectedIndex);
+            RunExample(listBox1.SelectedIndex);
         }
 
         private void listBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ExampleCode(listBox1.SelectedIndex);
+                RunExample(listBox1.SelectedIndex);
             }
         }
         #endregion
 
-        #region -- Example Code --
-        private void ExampleCode(int ex)
+        #region -- Run Example Code --
+        private void RunExample(int ex)
         {
             switch(ex)
             {
-                case 0: Ex0Code(); break;
-                case 1: Ex1Code(); break;
-                case 2: Ex2Code(); break;
+                case 0: Ex0(); break;
+                case 1: Ex1(); break;
+                case 2: Ex2(); break;
             }
         }
-        private void Ex0Code()
+        private void Ex0()
         {
             for (int i = 0; i < 7; i++)
             {
@@ -108,38 +109,28 @@ namespace CSharpArduino
             }
         }
 
-        private string millis(double ms)
+        private void Ex1()
         {
-            return ms.ToString();
-        }
-
-        private void Ex1Code()
-        {
-            DateTime dtStart = DateTime.Now;
-            //Thread.Sleep(1000);
-            //DateTime dtEnd = DateTime.Now;
-            //Serial.write((dtEnd - dtStart).ToString() + "\n");
-
-            DateTime dtEnd = DateTime.Now;
-            double diff = 0;
+            long dtStart = TimeCounter.millis();
+            long dtEnd = TimeCounter.millis();
             for (int i= 0; i < 5; i++)
             {
-                diff = (dtEnd - dtStart).TotalMilliseconds;
+                long diff = dtEnd - dtStart;
                 while (diff < 200)
                 {
                     
-                    dtEnd = DateTime.Now;
-                    diff = (dtEnd - dtStart).TotalMilliseconds;
+                    dtEnd = TimeCounter.millis();
+                    diff = dtEnd - dtStart;
                 }
-                dtStart = DateTime.Now;
-                Serial.write(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff") + "\n");
+                dtStart = TimeCounter.millis();
+                Serial.write(TimeCounter.millis().ToString() + "\n");
                 Serial.write(diff.ToString() + $" ({i+1})\n");
             }
-            Serial.write(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss fff") + "\n");
+            Serial.write(TimeCounter.millis().ToString() + "\n");
             Serial.write("(1000 ms)\n");
         }
 
-        private void Ex2Code()
+        private void Ex2()
         {
             Serial.write("**\n");
         }
