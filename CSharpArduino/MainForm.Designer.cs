@@ -38,6 +38,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnSerial = new System.Windows.Forms.Panel();
+            this.serialPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -86,6 +87,7 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.systemToolStripMenuItem,
+            this.serialPortToolStripMenuItem,
             this.versionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -123,10 +125,17 @@
             // 
             // pnSerial
             // 
-            this.pnSerial.Location = new System.Drawing.Point(546, 51);
+            this.pnSerial.Location = new System.Drawing.Point(546, 48);
             this.pnSerial.Name = "pnSerial";
-            this.pnSerial.Size = new System.Drawing.Size(390, 507);
+            this.pnSerial.Size = new System.Drawing.Size(390, 510);
             this.pnSerial.TabIndex = 96;
+            // 
+            // serialPortToolStripMenuItem
+            // 
+            this.serialPortToolStripMenuItem.Name = "serialPortToolStripMenuItem";
+            this.serialPortToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.serialPortToolStripMenuItem.Text = "Serial Port";
+            this.serialPortToolStripMenuItem.Click += new System.EventHandler(this.serialPortToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -163,6 +172,7 @@
         private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
         private System.Windows.Forms.Panel pnSerial;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ToolStripMenuItem serialPortToolStripMenuItem;
     }
 }
 

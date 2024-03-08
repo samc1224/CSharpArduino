@@ -46,16 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities\CmdHelper.cs" />
     <Compile Include="Forms\FrmLogBoxProgressBar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmLogBoxProgressBar.Designer.cs">
       <DependentUpon>FrmLogBoxProgressBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVersionLog.cs">
+    <Compile Include="Forms\FrmInputMsg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmVersionLog.Designer.cs">
+    <Compile Include="Forms\FrmInputMsg.Designer.cs">
+      <DependentUpon>FrmInputMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmVersionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmVersionLog.Designer.cs">
       <DependentUpon>FrmVersionLog.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -79,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSerial.resx">
       <DependentUpon>FrmSerial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmInputMsg.resx">
+      <DependentUpon>FrmInputMsg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
