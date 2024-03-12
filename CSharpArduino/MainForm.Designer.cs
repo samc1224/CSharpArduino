@@ -30,15 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pnInMsg = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.pnLogProgress = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serialPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnSerial = new System.Windows.Forms.Panel();
-            this.serialPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.pnInMsg);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -64,13 +66,20 @@
             this.tabPage1.Text = "Page1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // pnInMsg
+            // 
+            this.pnInMsg.Location = new System.Drawing.Point(263, 6);
+            this.pnInMsg.Name = "pnInMsg";
+            this.pnInMsg.Size = new System.Drawing.Size(258, 141);
+            this.pnInMsg.TabIndex = 1;
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(6, 6);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(216, 308);
+            this.listBox1.Size = new System.Drawing.Size(251, 308);
             this.listBox1.TabIndex = 0;
             this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
             this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
@@ -116,6 +125,13 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
+            // serialPortToolStripMenuItem
+            // 
+            this.serialPortToolStripMenuItem.Name = "serialPortToolStripMenuItem";
+            this.serialPortToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.serialPortToolStripMenuItem.Text = "Serial Port";
+            this.serialPortToolStripMenuItem.Click += new System.EventHandler(this.serialPortToolStripMenuItem_Click);
+            // 
             // versionToolStripMenuItem
             // 
             this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
@@ -129,13 +145,6 @@
             this.pnSerial.Name = "pnSerial";
             this.pnSerial.Size = new System.Drawing.Size(390, 510);
             this.pnSerial.TabIndex = 96;
-            // 
-            // serialPortToolStripMenuItem
-            // 
-            this.serialPortToolStripMenuItem.Name = "serialPortToolStripMenuItem";
-            this.serialPortToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.serialPortToolStripMenuItem.Text = "Serial Port";
-            this.serialPortToolStripMenuItem.Click += new System.EventHandler(this.serialPortToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -173,6 +182,7 @@
         private System.Windows.Forms.Panel pnSerial;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ToolStripMenuItem serialPortToolStripMenuItem;
+        private System.Windows.Forms.Panel pnInMsg;
     }
 }
 

@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSharpArduino
@@ -55,6 +47,7 @@ namespace CSharpArduino
         public string ReadLine()
         {
             string str = strInput;
+            // Message window style
             FrmInputMsg frmMsg = new FrmInputMsg();
             DialogResult dr = frmMsg.ShowDialog();
             if (dr == DialogResult.OK)
@@ -80,7 +73,6 @@ namespace CSharpArduino
         private void SendSerialInputBtn_Click(object sender, EventArgs e)
         {
             strInput = SerialInput.Text;
-            SerialInput.Text = "";
         }
 
         private void ClearSerialLogBtn_Click(object sender, EventArgs e)

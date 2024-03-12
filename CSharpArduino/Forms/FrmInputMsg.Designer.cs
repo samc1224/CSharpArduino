@@ -38,7 +38,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(13, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 16);
             this.label1.TabIndex = 0;
@@ -46,17 +47,19 @@
             // 
             // InputBox
             // 
-            this.InputBox.Location = new System.Drawing.Point(59, 17);
+            this.InputBox.Location = new System.Drawing.Point(59, 9);
+            this.InputBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InputBox.Name = "InputBox";
-            this.InputBox.Size = new System.Drawing.Size(138, 20);
+            this.InputBox.Size = new System.Drawing.Size(110, 22);
             this.InputBox.TabIndex = 213;
             // 
             // SendBtn
             // 
             this.SendBtn.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendBtn.Location = new System.Drawing.Point(59, 47);
+            this.SendBtn.Location = new System.Drawing.Point(27, 39);
+            this.SendBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SendBtn.Name = "SendBtn";
-            this.SendBtn.Size = new System.Drawing.Size(58, 25);
+            this.SendBtn.Size = new System.Drawing.Size(56, 26);
             this.SendBtn.TabIndex = 214;
             this.SendBtn.Text = "Send";
             this.SendBtn.UseVisualStyleBackColor = true;
@@ -65,22 +68,26 @@
             // CancelBtn
             // 
             this.CancelBtn.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.Location = new System.Drawing.Point(138, 47);
+            this.CancelBtn.Location = new System.Drawing.Point(101, 39);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(59, 25);
+            this.CancelBtn.Size = new System.Drawing.Size(58, 26);
             this.CancelBtn.TabIndex = 215;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // FrmInputMsg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(213, 84);
+            this.ClientSize = new System.Drawing.Size(183, 70);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.SendBtn);
             this.Controls.Add(this.InputBox);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmInputMsg";
             this.Text = "Input Box";
             this.ResumeLayout(false);

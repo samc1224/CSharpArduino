@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSharpArduino
@@ -15,11 +7,12 @@ namespace CSharpArduino
     {
         #region -- GLOBAL VARIABLES --
         static readonly FrmLogBoxProgressBar frmLog = new FrmLogBoxProgressBar();
+        static readonly FrmInputMsg frmInMsg = new FrmInputMsg();
         //static readonly FrmSerial Serial = new FrmSerial();
         static FrmSerial Serial = null;
         static FrmVersionLog frmVer = null;
-        static Random rnd = new Random();
 
+        static Random rnd = new Random();
         private DateTime startTime;
         private string[] exampleList = { "Ex0", "Ex1", "Ex2_HW1" };
         #endregion
@@ -34,8 +27,9 @@ namespace CSharpArduino
             this.AutoScaleMode = AutoScaleMode.None;
 
             // Embed the Form into the Container (TabControl, Panel...)
-            frmLog.Into(pnLogProgress);
             //Serial.Into(pnSerial);
+            frmLog.Into(pnLogProgress);
+            frmInMsg.Into(pnInMsg);
 
             startTime = DateTime.Now;
             AddExampleList();
@@ -190,7 +184,11 @@ namespace CSharpArduino
             Serial.print(Serial.read());
             while (input != answer)
             {
-                Serial.print($"\nAnswer range = {min} to {max}");
+                Serial.print($"\nRange of answer:");
+                Serial.print("\n");
+                Serial.print(min, "DEC");
+                Serial.print("\n");
+                Serial.print(max, "DEC");
                 Serial.print("\nEnter two digit number: ");
                 while (!Serial.available())
                 {
@@ -203,8 +201,9 @@ namespace CSharpArduino
                         break;
                     }
                 }
-                if(input != answer)
+                if (input != answer)
                 {
+                    Serial.print("\nWrong answer! ");
                     if (input > min && input < answer)
                     {
                         min = input;
@@ -212,7 +211,7 @@ namespace CSharpArduino
                     else if (input < max && input > answer)
                     {
                         max = input;
-                    }
+                    };
                 }
             }
             Serial.print("\nCorrect, the answer is: ");
