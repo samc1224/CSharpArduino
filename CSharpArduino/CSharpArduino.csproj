@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FrmDragDropText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDragDropText.Designer.cs">
+      <DependentUpon>FrmDragDropText.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\CmdHelper.cs" />
     <Compile Include="Forms\FrmLogBoxProgressBar.cs">
       <SubType>Form</SubType>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Utilities\TimeCounter.cs" />
     <Compile Include="Utilities\FormEmbedded.cs" />
+    <EmbeddedResource Include="Forms\FrmDragDropText.resx">
+      <DependentUpon>FrmDragDropText.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogBoxProgressBar.resx">
       <DependentUpon>FrmLogBoxProgressBar.cs</DependentUpon>
     </EmbeddedResource>

@@ -24,6 +24,13 @@ namespace CSharpArduino
             SerialLog.ScrollToCaret();
         }
 
+        public void println(int n, string s)
+        {
+            SerialLog.AppendText(n.ToString());
+            SerialLog.AppendText("\n");
+            SerialLog.ScrollToCaret();
+        }
+
         public void println(string s)
         {
             SerialLog.AppendText(s);
@@ -48,11 +55,11 @@ namespace CSharpArduino
         {
             string str = strInput;
             // Message window style
-            FrmInputMsg frmMsg = new FrmInputMsg();
-            DialogResult dr = frmMsg.ShowDialog();
+            FrmInputMsg frmInMsg = new FrmInputMsg();
+            DialogResult dr = frmInMsg.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                str = frmMsg.ReturnMsg();
+                str = frmInMsg.ReturnMsg();
                 SerialInput.Text = str;
                 strInput = str;
             }

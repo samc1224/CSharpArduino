@@ -11,6 +11,7 @@ namespace CSharpArduino
         //static readonly FrmSerial Serial = new FrmSerial();
         static FrmSerial Serial = null;
         static FrmVersionLog frmVer = null;
+        static FrmDragDropText frmDrag = null;
 
         static Random rnd = new Random();
         private DateTime startTime;
@@ -59,6 +60,11 @@ namespace CSharpArduino
         #region -- Strip Menu, Tab Control Items --
         private void serialPortToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmSerial_Open();
+        }
+
+        private void FrmSerial_Open()
+        {
             if (Serial == null)
             {
                 Serial = new FrmSerial();
@@ -77,6 +83,26 @@ namespace CSharpArduino
             Serial = null;
         }
 
+        private void dragDropTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmDrag == null)
+            {
+                frmDrag = new FrmDragDropText();
+                frmDrag.Show();
+                frmDrag.Disposed += new EventHandler(FrmDragDrop_Disposed);
+            }
+            else
+            {
+                frmDrag.WindowState = FormWindowState.Normal;
+                frmDrag.BringToFront();
+            }
+        }
+
+        void FrmDragDrop_Disposed(object sender, EventArgs e)
+        {
+            frmDrag = null;
+        }
+
         private void versionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (frmVer == null)
@@ -85,7 +111,7 @@ namespace CSharpArduino
                 frmVer.Show();
 
                 // Create an event where the Form is closed (dispose)
-                frmVer.Disposed += new EventHandler(FrmLogBox_Disposed);
+                frmVer.Disposed += new EventHandler(FrmVersionBox_Disposed);
             }
             else
             {
@@ -97,7 +123,7 @@ namespace CSharpArduino
         }
 
         // Event that will be triggered when closing the Form
-        void FrmLogBox_Disposed(object sender, EventArgs e)
+        void FrmVersionBox_Disposed(object sender, EventArgs e)
         {
             frmVer = null;
         }
@@ -175,12 +201,14 @@ namespace CSharpArduino
 
         private void Ex2()
         {
+            if (Serial == null) { FrmSerial_Open(); }
+
             int input = 0, answer = 0;
             int min = 0, max = 100;
             answer = random(min, max);
-            Serial.print("\nAnswer number = ");
-            Serial.print(answer, "DEC");
-            Serial.print("\nEnter two digit number: ");
+            Serial.print("Answer number = ");
+            Serial.println(answer, "DEC");
+            Serial.println("Enter two digit number: ");
             Serial.print(Serial.read());
             while (input != answer)
             {
